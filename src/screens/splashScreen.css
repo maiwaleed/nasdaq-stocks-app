@@ -1,0 +1,22 @@
+.splash-screen {
+  background-image: url("../assets/nasdaq-logo.png");
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: inherit;
+  height: inherit;
+  opacity: 0;
+  animation: fadeInFadeOut 3s ease-in-out; /* Changed to new animation */
+}
+
+@keyframes fadeInFadeOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
