@@ -6,7 +6,7 @@ import MainLayout from "./layouts/MainLayout";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/nasdaq-stocks-app">
       <MainLayout>
         <AppNavigator />
       </MainLayout>
