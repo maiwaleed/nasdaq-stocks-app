@@ -2,6 +2,7 @@
   "name": "nasdaq-stocks-app",
   "private": true,
   "version": "0.0.0",
+  "type": "module",
   "homepage": "https://github.com/maiwaleed/nasdaq-stocks-app",
   "scripts": {
     "dev": "vite",
@@ -22,6 +23,7 @@
     "axios": "^1.8.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "lodash": "^4.17.21",
     "lucide-react": "^0.501.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -42,6 +44,7 @@
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
     "@types/jest": "^29.5.14",
+    "@types/lodash": "^4.17.16",
     "@types/node": "^22.14.1",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",

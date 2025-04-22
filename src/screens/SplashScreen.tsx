@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import "./splashScreen.css";
-import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
 const SplashScreen = () => {

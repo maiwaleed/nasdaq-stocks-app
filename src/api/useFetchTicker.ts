@@ -59,7 +59,7 @@ const useFetchTicker = () => {
       return error?.code === 429 && failureCount < 2;
     },
 
-    retryDelay: (attempt, error: any) => {
+    retryDelay: (error: any) => {
       if (error?.code === 429) {
         return error.retryAfter || 60_000;
       }

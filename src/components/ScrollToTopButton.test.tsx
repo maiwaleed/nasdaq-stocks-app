@@ -1,4 +1,3 @@
-import React from "react";
 import { act } from "@testing-library/react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import ScrollToTopButton from "./ScrollToTopButton";

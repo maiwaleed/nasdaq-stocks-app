@@ -1,10 +1,6 @@
 import axios from "axios";
-import {
-  FetchedSearch,
-  FetchedTickers,
-  SearchResultData,
-} from "@/types/tickers";
-import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
+import { SearchResultData } from "@/types/tickers";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import { useSearchStore } from "@/store/searchStore";
 import { useEffect } from "react";
 
@@ -73,7 +69,7 @@ const useSearchTicker = (query: string) => {
       return error?.code === 429 && failureCount < 2;
     },
 
-    retryDelay: (attempt, error: any) => {
+    retryDelay: (error: any) => {
       if (error?.code === 429) {
         return error.retryAfter || 60_000;
       }

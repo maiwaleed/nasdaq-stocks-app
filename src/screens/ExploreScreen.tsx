@@ -1,7 +1,7 @@
 import Loading from "@/components/Loading";
 import useFetchTicker from "../api/useFetchTicker";
 import StockCard from "@/components/stock-card";
-import React, { useCallback, useEffect, useMemo, useRef } from "react";
+import { useCallback, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import Error from "@/components/Error";
 import useSearchTicker from "@/api/useSearchTicker";

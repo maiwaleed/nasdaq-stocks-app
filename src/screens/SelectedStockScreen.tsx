@@ -3,19 +3,6 @@ import { TickerObject } from "@/types/tickers";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-interface StockDetails {
-  ticker: string;
-  name: string;
-  market: string;
-  locale: string;
-  type: string;
-  active: boolean;
-  currency_name: string;
-  composite_figi: string;
-  share_class_figi: string;
-  last_updated_utc: string;
-}
-
 const SelectedStockScreen = () => {
   const location = useLocation();
   const stockDetails: TickerObject = location.state?.stock;

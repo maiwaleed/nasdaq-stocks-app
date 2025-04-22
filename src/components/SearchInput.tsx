@@ -1,20 +1,15 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { Search, X } from "lucide-react";
 import { useSearchStore } from "@/store/searchStore";
-import debounce from "lodash.debounce";
-import useSearchTicker from "@/api/useSearchTicker";
+import debounce from "lodash/debounce";
 import { useNavigate } from "react-router-dom";
 
 const SearchInput = () => {
   const query = useSearchStore((store) => store.query);
   const setQuery = useSearchStore((store) => store.setQuery);
-  const clearQuery = useSearchStore((store) => store.clearQuery);
-  const searchedList = useSearchStore((store) => store.searchedList);
-  const navigate = useNavigate();
 
-  const { searchResult } = useSearchTicker(query);
+  const navigate = useNavigate();
 
   const [inputValue, setInputValue] = useState(query);
 

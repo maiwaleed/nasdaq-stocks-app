@@ -1,4 +1,3 @@
-import React from "react";
 import { Routes, Route } from "react-router-dom";
 import SplashScreen from "../screens/SplashScreen"; // or ../modules/splash/SplashScreen
 import ExploreScreen from "../screens/ExploreScreen"; // or ../modules/explore/ExploreScreen
