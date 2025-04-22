@@ -1,5 +1,5 @@
 import { ArrowUp } from "lucide-react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -24,6 +24,7 @@ const ScrollToTopButton = () => {
 
   return (
     <button
+      data-testid="scrollUp-btn"
       onClick={scrollToTop}
       className="fixed bottom-6 right-6 p-3 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700 transition-all z-50 cursor-pointer"
     >
