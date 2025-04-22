@@ -5,7 +5,7 @@ This is a React + TypeScript web application built using Vite. The app provides 
 ## Deployed App
 
 You can view the deployed version of the app here:  
-[Stock market app](https://your-username.github.io/your-repo-name)
+[Stock market app](https://maiwaleed.github.io/nasdaq-stocks-app/)
 
 ## 🔧 Tech Stack & Libraries
 
