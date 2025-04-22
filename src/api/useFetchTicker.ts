@@ -18,9 +18,23 @@ export const fetchData = async ({ pageParam }: { pageParam?: string }) => {
     });
 
     return response.data;
-  } catch (error) {
+  } catch (error: any) {
+    if (error.response?.status === 429) {
+      const errorMessage = error.response.data?.error;
+
+      if (
+        errorMessage &&
+        errorMessage.includes("exceeded the maximum requests per minute")
+      ) {
+        console.error(`Rate limit exceeded. Retry after one minute.`);
+        throw new Error(
+          `Rate limit exceeded. Please wait for one minute before retrying.`
+        );
+      }
+    }
+
     console.error(error);
-    throw new Error(`Request setup error: ${error}`);
+    throw new Error(`Request failed: ${error.message || "Unknown error"}`);
   }
 };
 
@@ -32,6 +46,7 @@ const useFetchTicker = () => {
     fetchNextPage,
     isLoading,
     isError,
+    error: fetchError,
     hasNextPage,
     isFetchingNextPage,
   } = useInfiniteQuery({
@@ -40,6 +55,16 @@ const useFetchTicker = () => {
     initialPageParam: undefined,
     getNextPageParam: (lastPage) => lastPage.next_url ?? undefined,
     enabled: !query,
+    retry: (failureCount, error: any) => {
+      return error?.code === 429 && failureCount < 2;
+    },
+
+    retryDelay: (attempt, error: any) => {
+      if (error?.code === 429) {
+        return error.retryAfter || 60_000;
+      }
+      return 60000;
+    },
     staleTime: Infinity,
   });
 
@@ -50,6 +75,7 @@ const useFetchTicker = () => {
     isError,
     hasNextPage,
     isFetchingNextPage,
+    fetchError,
   };
 };
 

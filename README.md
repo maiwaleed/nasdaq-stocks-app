@@ -2,6 +2,11 @@
 
 This is a React + TypeScript web application built using Vite. The app provides an interface to search for Nasdaq-listed stocks. It uses a clean and modern UI and connects to [polygon.io](https://polygon.io/) API to display matching results. The app is designed for performance and scalability, leveraging powerful libraries for UI components, state management, and testing.
 
+## Deployed App
+
+You can view the deployed version of the app here:  
+[Stock market app](https://your-username.github.io/your-repo-name)
+
 ## 🔧 Tech Stack & Libraries
 
 Here are some of the most important libraries and tools used in the project:

@@ -23,10 +23,14 @@ const ExploreScreen = () => {
     isLoading,
     fetchNextPage,
     isFetchingNextPage,
+    fetchError,
   } = useFetchTicker();
 
-  const { isPending: isSearchResultLoading, isError: isSearchResultError } =
-    useSearchTicker(query);
+  const {
+    isPending: isSearchResultLoading,
+    isError: isSearchResultError,
+    searchError,
+  } = useSearchTicker(query);
 
   const navigate = useNavigate();
   const infiniteScrollRef = useCallback(
@@ -58,11 +62,11 @@ const ExploreScreen = () => {
   }, []);
 
   if (isLoading) return <Loading />;
-  if (isTickerError) return <Error message="Error loading tickers!" />;
+  if (isTickerError) return <Error message={fetchError?.message} />;
 
   if (query && isSearchResultLoading) return <Loading />;
   if (query && isSearchResultError) {
-    return <Error message="An error while searching!" />;
+    return <Error message={searchError.message} />;
   }
   if (query && searchedList.length === 0) {
     return <Error message="No results found!" />;
